@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Q4 Seatwork 1</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Segoe UI',sans-serif;
+  background:#f2f2f2;
+}
+
+.wrapper{
+  width:640px;
+}
+
+.login-box,.hint-box{
+  display:inline-block;
+  width:300px;
+  padding:20px;
+  border-radius:10px;
+  vertical-align:top;
+}
+
+.login-box{
+  background:#fff;
+  margin-right:20px;
+}
+
+.hint-box{
+  background:#f7f7f7;
+}
+
+h1{font-size:20px;margin-bottom:15px}
+h3{margin-bottom:10px}
+
+input{
+  width:100%;
+  padding:8px;
+  margin-bottom:10px;
+  border:0;
+  background:#eee;
+  border-radius:6px;
+}
+
+button{
+  width:100%;
+  padding:10px;
+  background:#1a1a2e;
+  color:#fff;
+  border:0;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+#msg{
+  margin-top:10px;
+  font-size:12px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div class="login-box">
+    <h1>LOGIN FORM</h1>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="check()">Login</button>
+
+    <div id="msg"></div>
+  </div>
+
+  <div class="hint-box">
+    <h3>Login Details</h3>
+    <p><b>User:</b> OBMC QWERTY</p>
+    <p><b>Pass:</b> OBMC60TH</p>
+  </div>
+
+</div>
+
+<script>
+var correct_user = "OBMC QWERTY";
+var correct_pass = "OBMC60TH";
+var attempts = 0;
+
+function check(){
+  var userInput = document.getElementById("username").value;
+  var passInput = document.getElementById("password").value;
+  var msg = document.getElementById("msg");
+
+  if(attempts < 3){
+    if(userInput === correct_user && passInput === correct_pass){
+      msg.innerText = "Access Granted";
+      
+    
+      window.location.href = "notebooks.html";
+
+    } else {
+      attempts++;
+      msg.innerText = "Access denied. " + (3 - attempts) + " left";
+    }
+  }
+
+  if(attempts === 3){
+    msg.innerText = "Account Locked";
+    document.getElementById("username").disabled = true;
+    document.getElementById("password").disabled = true;
+  }
+}
+</script>
+
+</body>
+</html>

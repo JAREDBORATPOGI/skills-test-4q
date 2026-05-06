@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notebooks</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Open Sans',sans-serif;display:flex;min-height:100vh;background:#e8e8e8;}
+  .sidebar{width:120px;background:#1a1a2e;display:flex;flex-direction:column;align-items:center;padding-top:20px;}
+  .sidebar .brand{width:44px;height:44px;background:#2c2c4e;border-radius:8px;margin-bottom:30px;}
+  .sidebar a{width:100%;padding:10px 0;text-align:center;font-size:12px;color:#888;text-decoration:none;}
+  .sidebar a:hover{color:#fff;background:#333}
+  .sidebar a.active{color:#fff}
+  .sidebar .logout{margin-top:auto;color:#666;}
+  .sidebar .logout:hover{color:#e74c3c}
+  .main{flex:1;position:relative}
+  .card{margin:20px;padding:20px;background:#fff;border-radius:10px;min-height:90vh;}
+  .tag{display:inline-block;padding:6px 15px;background:#1a1a2e;color:#fff;font-size:13px;border-radius:6px;}
+  .sub{font-size:12px;color:#aaa;margin-top:5px;margin-bottom:20px;}
+  .grid{display: flex; flex-wrap: wrap; gap: 10px;}
+  .sc{display:inline-block;width:30%;padding:10px;background:#f7f7f7;border-radius:8px;vertical-align:top;}
+  .sc .thumb{height:60px;background:#ddd;border-radius:6px;margin-bottom:10px;}
+  .sc h5{font-size:14px;margin-bottom:3px}
+  .sc .qtr{font-size:11px;color:#bbb}
+  .sc .teacher{font-size:12px;color:#666;margin:5px 0}
+  .sc .bar{height:4px;background:#ddd;border-radius:4px;}
+  .sc .fill{height:4px;background:#1a1a2e;border-radius:4px;}
+  .foot{position:absolute;bottom:20px;right:20px;font-size:10px;color:#bbb;}
+</style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="brand"></div>
+    <a href="#">Dashboard</a>
+    <a href="#" class="active">Virtual Notebooks</a>
+    <a href="#">Tasks</a>
+    <a href="#">Profile</a>
+    <!-- Link back to index.html -->
+    <a href="index.html" class="logout">Logout</a>
+  </div>
+  <div class="main">
+    <div class="card">
+      <div class="tag">NOTEBOOKS</div>
+      <p class="sub">Select a subject.</p>
+      <div class="grid">
+        <div class="sc"><div class="thumb"></div><h5>Filipino</h5><p class="qtr">2025-2026</p><p class="teacher">Mr. Salazar</p><div class="bar"><div class="fill" style="width:70%"></div></div></div>
+        <div class="sc"><div class="thumb"></div><h5>English</h5><p class="qtr">2025-2026</p><p class="teacher">Mr. Alegrid</p><div class="bar"><div class="fill" style="width:80%"></div></div></div>
+        <div class="sc"><div class="thumb"></div><h5>Math</h5><p class="qtr">2025-2026</p><p class="teacher">Ms. Cristobal</p><div class="bar"><div class="fill" style="width:60%"></div></div></div>
+        <div class="sc"><div class="thumb"></div><h5>Science</h5><p class="qtr">2025-2026</p><p class="teacher">Mrs. Galang</p><div class="bar"><div class="fill" style="width:75%"></div></div></div>
+        <div class="sc"><div class="thumb"></div><h5>Social Studies</h5><p class="qtr">2025-2026</p><p class="teacher">Mr. Roque</p><div class="bar"><div class="fill" style="width:55%"></div></div></div>
+        <div class="sc"><div class="thumb"></div><h5>Values Ed</h5><p class="qtr">2025-2026</p><p class="teacher">Mr. Mercado</p><div class="bar"><div class="fill" style="width:90%"></div></div></div>
+      </div>
+      <p id="count" style="margin-top:1rem;font-size:12px;color:#bbb;"></p>
+    </div>
+    <div class="foot">Student Name | Grade &amp; Section</div>
+  </div>
+  <script>
+    var total = document.querySelectorAll(".sc").length;
+    document.getElementById("count").innerHTML = "Total subjects: " + total;
+  </script>
+</body>
+</html>
